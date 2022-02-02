@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+metadata:
+  name: python-debugme
+build:
+  artifacts:
+  - image: us-central1-docker.pkg.dev/genuine-flight-317411/devel/python-debugme
+    docker:
+      dockerfile: Dockerfile
+  local:
+    push: true
+    concurrency: 0
+deploy:
+  kubectl:
+    manifests:
+    - test.yaml
+

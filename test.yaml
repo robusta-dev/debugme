@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-debugme
+  labels:
+    app: python-debugme
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-debugme
+  template:
+    metadata:
+      labels:
+        app: python-debugme
+    spec:
+      containers:
+        - name: python-debugme
+          image: us-central1-docker.pkg.dev/genuine-flight-317411/devel/python-debugme
+          imagePullPolicy: Always
